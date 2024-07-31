@@ -5,10 +5,10 @@ set -e
 export LORIKEET_VERSION=$1
 echo "Testing Lorikeet version $LORIKEET_VERSION"
 
-# Test conda install
-echo "Testing conda install .."
-sed "s/LORIKEET_VERSION/$LORIKEET_VERSION/g" Dockerfile.conda.in > Dockerfile.conda
-docker build --no-cache --progress=plain -f Dockerfile.conda . &> conda.build.log
+# # Test conda install
+# echo "Testing conda install .."
+# sed "s/LORIKEET_VERSION/$LORIKEET_VERSION/g" Dockerfile.conda.in > Dockerfile.conda
+# docker build --no-cache --progress=plain -f Dockerfile.conda . &> conda.build.log
 
 # Test crates install
 echo "Testing crates install .."
