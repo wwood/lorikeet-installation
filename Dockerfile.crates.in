@@ -1,0 +1,30 @@
+FROM ubuntu:22.04
+
+# install miniconda
+RUN apt-get update \
+    && apt-get install -y build-essential \
+    && apt-get install -y wget
+    # && apt-get clean \
+    # && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get install -y python3-pip
+
+RUN cargo install lorikeet-genome --version=LORIKEET_VERSION
+
+# Install non-rust dependencies via conda
+ENV CONDA_DIR /opt/conda
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p /opt/conda
+
+# Put conda in path so we can use conda activate
+ENV PATH=$CONDA_DIR/bin:$PATH
+
+RUN wget https://raw.githubusercontent.com/rhysnewell/Lorikeet/LORIKEET_VERSION/lorikeet.yml
+
+# install non-python dependencies
+RUN conda env create -f lorikeet.yml -n lorikeet
+
+# activate the lorikeet environment
+RUN echo "source activate lorikeet" > ~/.bashrc
+ENV PATH=$CONDA_DIR/envs/lorikeet/bin:$PATH
+  
