@@ -1,733 +1,611 @@
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile.crates
-#1 transferring dockerfile: 1.05kB done
+#1 transferring dockerfile: 1.07kB done
 #1 DONE 0.0s
 
 #2 [internal] load metadata for docker.io/library/ubuntu:22.04
-#2 DONE 0.8s
+#2 ...
 
-#3 [internal] load .dockerignore
-#3 transferring context: 2B done
+#3 [auth] library/ubuntu:pull token for registry-1.docker.io
 #3 DONE 0.0s
 
-#4 [ 1/10] FROM docker.io/library/ubuntu:22.04@sha256:340d9b015b194dc6e2a13938944e0d016e57b9679963fdeb9ce021daac430221
+#2 [internal] load metadata for docker.io/library/ubuntu:22.04
+#2 DONE 1.8s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
 #4 DONE 0.0s
 
-#5 [ 2/10] RUN apt-get update     && apt-get install -y build-essential     && apt-get install -y wget
-#5 CACHED
+#5 [1/6] FROM docker.io/library/ubuntu:22.04@sha256:340d9b015b194dc6e2a13938944e0d016e57b9679963fdeb9ce021daac430221
+#5 DONE 0.0s
 
-#6 [ 3/10] RUN wget https://sh.rustup.rs -O install_rust.sh
+#6 [2/6] RUN apt-get update     && apt-get install -y build-essential     && apt-get install -y wget
 #6 CACHED
 
-#7 [ 4/10] RUN sh install_rust.sh -y
+#7 [3/6] RUN wget https://sh.rustup.rs -O install_rust.sh
 #7 CACHED
 
-#8 [ 5/10] RUN apt-get install -y python3-minimal cmake
-#8 0.177 Reading package lists...
-#8 0.823 Building dependency tree...
-#8 0.942 Reading state information...
-#8 1.056 The following additional packages will be installed:
-#8 1.057   cmake-data dh-elpa-helper emacsen-common libarchive13 libcurl4 libicu70
-#8 1.057   libjsoncpp25 libmpdec3 libnghttp2-14 libpython3.10-minimal
-#8 1.057   libpython3.10-stdlib librhash0 librtmp1 libssh-4 libuv1 libxml2 media-types
-#8 1.057   python3.10 python3.10-minimal
-#8 1.058 Suggested packages:
-#8 1.058   cmake-doc ninja-build cmake-format lrzip python3.10-venv python3.10-doc
-#8 1.058   binfmt-support
-#8 1.105 The following NEW packages will be installed:
-#8 1.105   cmake cmake-data dh-elpa-helper emacsen-common libarchive13 libcurl4
-#8 1.105   libicu70 libjsoncpp25 libmpdec3 libnghttp2-14 libpython3.10-minimal
-#8 1.106   libpython3.10-stdlib librhash0 librtmp1 libssh-4 libuv1 libxml2 media-types
-#8 1.106   python3-minimal python3.10 python3.10-minimal
-#8 1.941 0 upgraded, 21 newly installed, 0 to remove and 0 not upgraded.
-#8 1.941 Need to get 25.1 MB of archives.
-#8 1.941 After this operation, 92.8 MB of additional disk space will be used.
-#8 1.941 Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-minimal amd64 3.10.12-1~22.04.5 [813 kB]
-#8 3.992 Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10-minimal amd64 3.10.12-1~22.04.5 [2244 kB]
-#8 4.553 Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-minimal amd64 3.10.6-1~22.04 [24.3 kB]
-#8 4.555 Get:4 http://archive.ubuntu.com/ubuntu jammy/main amd64 libicu70 amd64 70.1-2 [10.6 MB]
-#8 15.56 Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpdec3 amd64 2.5.1-2build2 [86.8 kB]
-#8 15.58 Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 media-types all 7.0.0 [25.5 kB]
-#8 15.60 Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-stdlib amd64 3.10.12-1~22.04.5 [1849 kB]
-#8 16.17 Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libxml2 amd64 2.9.13+dfsg-1ubuntu0.4 [763 kB]
-#8 16.37 Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10 amd64 3.10.12-1~22.04.5 [509 kB]
-#8 16.50 Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnghttp2-14 amd64 1.43.0-1ubuntu0.2 [76.9 kB]
-#8 16.51 Get:11 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libuv1 amd64 1.43.0-1ubuntu0.1 [92.7 kB]
-#8 16.53 Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libarchive13 amd64 3.6.0-1ubuntu1.1 [369 kB]
-#8 16.61 Get:13 http://archive.ubuntu.com/ubuntu jammy/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2build4 [58.2 kB]
-#8 16.62 Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libssh-4 amd64 0.9.6-2ubuntu0.22.04.3 [186 kB]
-#8 16.66 Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcurl4 amd64 7.81.0-1ubuntu1.16 [290 kB]
-#8 16.72 Get:16 http://archive.ubuntu.com/ubuntu jammy/main amd64 libjsoncpp25 amd64 1.9.5-3 [80.0 kB]
-#8 16.74 Get:17 http://archive.ubuntu.com/ubuntu jammy/main amd64 librhash0 amd64 1.4.2-1ubuntu1 [125 kB]
-#8 16.77 Get:18 http://archive.ubuntu.com/ubuntu jammy/main amd64 dh-elpa-helper all 2.0.9ubuntu1 [7610 B]
-#8 16.99 Get:19 http://archive.ubuntu.com/ubuntu jammy/main amd64 emacsen-common all 3.0.4 [14.9 kB]
-#8 16.99 Get:20 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 cmake-data all 3.22.1-1ubuntu1.22.04.2 [1913 kB]
-#8 17.32 Get:21 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 cmake amd64 3.22.1-1ubuntu1.22.04.2 [5010 kB]
-#8 24.29 debconf: delaying package configuration, since apt-utils is not installed
-#8 24.31 Fetched 25.1 MB in 23s (1089 kB/s)
-#8 24.33 Selecting previously unselected package libpython3.10-minimal:amd64.
-#8 24.33 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 13961 files and directories currently installed.)
-#8 24.34 Preparing to unpack .../libpython3.10-minimal_3.10.12-1~22.04.5_amd64.deb ...
-#8 24.34 Unpacking libpython3.10-minimal:amd64 (3.10.12-1~22.04.5) ...
-#8 24.41 Selecting previously unselected package python3.10-minimal.
-#8 24.41 Preparing to unpack .../python3.10-minimal_3.10.12-1~22.04.5_amd64.deb ...
-#8 24.42 Unpacking python3.10-minimal (3.10.12-1~22.04.5) ...
-#8 24.47 Setting up libpython3.10-minimal:amd64 (3.10.12-1~22.04.5) ...
-#8 24.49 Setting up python3.10-minimal (3.10.12-1~22.04.5) ...
-#8 24.96 Selecting previously unselected package python3-minimal.
-#8 24.96 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 14257 files and directories currently installed.)
-#8 24.97 Preparing to unpack .../00-python3-minimal_3.10.6-1~22.04_amd64.deb ...
-#8 24.97 Unpacking python3-minimal (3.10.6-1~22.04) ...
-#8 25.00 Selecting previously unselected package libicu70:amd64.
-#8 25.00 Preparing to unpack .../01-libicu70_70.1-2_amd64.deb ...
-#8 25.01 Unpacking libicu70:amd64 (70.1-2) ...
-#8 25.12 Selecting previously unselected package libmpdec3:amd64.
-#8 25.12 Preparing to unpack .../02-libmpdec3_2.5.1-2build2_amd64.deb ...
-#8 25.13 Unpacking libmpdec3:amd64 (2.5.1-2build2) ...
-#8 25.15 Selecting previously unselected package media-types.
-#8 25.15 Preparing to unpack .../03-media-types_7.0.0_all.deb ...
-#8 25.16 Unpacking media-types (7.0.0) ...
-#8 25.19 Selecting previously unselected package libpython3.10-stdlib:amd64.
-#8 25.19 Preparing to unpack .../04-libpython3.10-stdlib_3.10.12-1~22.04.5_amd64.deb ...
-#8 25.19 Unpacking libpython3.10-stdlib:amd64 (3.10.12-1~22.04.5) ...
-#8 25.29 Selecting previously unselected package libxml2:amd64.
-#8 25.29 Preparing to unpack .../05-libxml2_2.9.13+dfsg-1ubuntu0.4_amd64.deb ...
-#8 25.30 Unpacking libxml2:amd64 (2.9.13+dfsg-1ubuntu0.4) ...
-#8 25.33 Selecting previously unselected package python3.10.
-#8 25.33 Preparing to unpack .../06-python3.10_3.10.12-1~22.04.5_amd64.deb ...
-#8 25.33 Unpacking python3.10 (3.10.12-1~22.04.5) ...
-#8 25.36 Selecting previously unselected package libnghttp2-14:amd64.
-#8 25.37 Preparing to unpack .../07-libnghttp2-14_1.43.0-1ubuntu0.2_amd64.deb ...
-#8 25.37 Unpacking libnghttp2-14:amd64 (1.43.0-1ubuntu0.2) ...
-#8 25.41 Selecting previously unselected package libuv1:amd64.
-#8 25.42 Preparing to unpack .../08-libuv1_1.43.0-1ubuntu0.1_amd64.deb ...
-#8 25.42 Unpacking libuv1:amd64 (1.43.0-1ubuntu0.1) ...
-#8 25.47 Selecting previously unselected package libarchive13:amd64.
-#8 25.47 Preparing to unpack .../09-libarchive13_3.6.0-1ubuntu1.1_amd64.deb ...
-#8 25.47 Unpacking libarchive13:amd64 (3.6.0-1ubuntu1.1) ...
-#8 25.53 Selecting previously unselected package librtmp1:amd64.
-#8 25.53 Preparing to unpack .../10-librtmp1_2.4+20151223.gitfa8646d.1-2build4_amd64.deb ...
-#8 25.54 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2build4) ...
-#8 25.59 Selecting previously unselected package libssh-4:amd64.
-#8 25.59 Preparing to unpack .../11-libssh-4_0.9.6-2ubuntu0.22.04.3_amd64.deb ...
-#8 25.59 Unpacking libssh-4:amd64 (0.9.6-2ubuntu0.22.04.3) ...
-#8 25.64 Selecting previously unselected package libcurl4:amd64.
-#8 25.65 Preparing to unpack .../12-libcurl4_7.81.0-1ubuntu1.16_amd64.deb ...
-#8 25.65 Unpacking libcurl4:amd64 (7.81.0-1ubuntu1.16) ...
-#8 25.70 Selecting previously unselected package libjsoncpp25:amd64.
-#8 25.71 Preparing to unpack .../13-libjsoncpp25_1.9.5-3_amd64.deb ...
-#8 25.71 Unpacking libjsoncpp25:amd64 (1.9.5-3) ...
-#8 25.76 Selecting previously unselected package librhash0:amd64.
-#8 25.77 Preparing to unpack .../14-librhash0_1.4.2-1ubuntu1_amd64.deb ...
-#8 25.77 Unpacking librhash0:amd64 (1.4.2-1ubuntu1) ...
-#8 25.81 Selecting previously unselected package dh-elpa-helper.
-#8 25.82 Preparing to unpack .../15-dh-elpa-helper_2.0.9ubuntu1_all.deb ...
-#8 25.82 Unpacking dh-elpa-helper (2.0.9ubuntu1) ...
-#8 25.87 Selecting previously unselected package emacsen-common.
-#8 25.87 Preparing to unpack .../16-emacsen-common_3.0.4_all.deb ...
-#8 25.90 Unpacking emacsen-common (3.0.4) ...
-#8 25.96 Selecting previously unselected package cmake-data.
-#8 25.96 Preparing to unpack .../17-cmake-data_3.22.1-1ubuntu1.22.04.2_all.deb ...
-#8 25.98 Unpacking cmake-data (3.22.1-1ubuntu1.22.04.2) ...
-#8 26.33 Selecting previously unselected package cmake.
-#8 26.33 Preparing to unpack .../18-cmake_3.22.1-1ubuntu1.22.04.2_amd64.deb ...
-#8 26.34 Unpacking cmake (3.22.1-1ubuntu1.22.04.2) ...
-#8 26.42 Setting up media-types (7.0.0) ...
-#8 26.43 Setting up libnghttp2-14:amd64 (1.43.0-1ubuntu0.2) ...
-#8 26.44 Setting up libuv1:amd64 (1.43.0-1ubuntu0.1) ...
-#8 26.45 Setting up emacsen-common (3.0.4) ...
-#8 26.48 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2build4) ...
-#8 26.49 Setting up dh-elpa-helper (2.0.9ubuntu1) ...
-#8 26.50 Setting up libjsoncpp25:amd64 (1.9.5-3) ...
-#8 26.51 Setting up libssh-4:amd64 (0.9.6-2ubuntu0.22.04.3) ...
-#8 26.52 Setting up librhash0:amd64 (1.4.2-1ubuntu1) ...
-#8 26.53 Setting up libmpdec3:amd64 (2.5.1-2build2) ...
-#8 26.55 Setting up libcurl4:amd64 (7.81.0-1ubuntu1.16) ...
-#8 26.56 Setting up python3-minimal (3.10.6-1~22.04) ...
-#8 26.70 Setting up cmake-data (3.22.1-1ubuntu1.22.04.2) ...
-#8 26.73 Setting up libicu70:amd64 (70.1-2) ...
-#8 26.74 Setting up libpython3.10-stdlib:amd64 (3.10.12-1~22.04.5) ...
-#8 26.74 Setting up libxml2:amd64 (2.9.13+dfsg-1ubuntu0.4) ...
-#8 26.75 Setting up python3.10 (3.10.12-1~22.04.5) ...
-#8 27.27 Setting up libarchive13:amd64 (3.6.0-1ubuntu1.1) ...
-#8 27.28 Setting up cmake (3.22.1-1ubuntu1.22.04.2) ...
-#8 27.29 Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
-#8 DONE 27.5s
+#8 [4/6] RUN sh install_rust.sh -y
+#8 CACHED
 
-#9 [ 6/10] RUN cargo install lorikeet-genome --version=0.8.2
-#9 0.209     Updating crates.io index
-#9 0.275  Downloading crates ...
-#9 0.372   Downloaded lorikeet-genome v0.8.2
-#9 0.454   Installing lorikeet-genome v0.8.2
-#9 0.487     Updating crates.io index
-#9 2.655      Locking 259 packages to latest compatible versions
-#9 2.655       Adding ahash v0.7.8 (latest: v0.8.11)
-#9 2.656       Adding autocfg v0.1.8 (latest: v1.3.0)
-#9 2.657       Adding bio v1.6.0 (latest: v2.0.1)
-#9 2.657       Adding bird_tool_utils v0.4.1 (latest: v0.5.0)
-#9 2.657       Adding bit-set v0.5.3 (latest: v0.8.0)
-#9 2.657       Adding bit-vec v0.5.1 (latest: v0.8.0)
-#9 2.657       Adding bit-vec v0.6.3 (latest: v0.8.0)
-#9 2.657       Adding bitflags v1.3.2 (latest: v2.6.0)
-#9 2.657       Adding bstr v0.2.17 (latest: v1.10.0)
-#9 2.659       Adding cloudabi v0.0.3 (latest: v0.1.0)
-#9 2.660       Adding derive-new v0.5.9 (latest: v0.6.0)
-#9 2.660       Adding encode_unicode v0.3.6 (latest: v1.0.0)
-#9 2.660       Adding enum-ordinalize v3.1.15 (latest: v4.3.0)
-#9 2.660       Adding env_logger v0.6.2 (latest: v0.11.5)
-#9 2.660       Adding env_logger v0.10.2 (latest: v0.11.5)
-#9 2.660       Adding fixedbitset v0.4.2 (latest: v0.5.7)
-#9 2.661       Adding generic-array v0.14.7 (latest: v1.1.0)
-#9 2.661       Adding hashbrown v0.11.2 (latest: v0.14.5)
-#9 2.661       Adding hashbrown v0.12.3 (latest: v0.14.5)
-#9 2.661       Adding hashlink v0.7.0 (latest: v0.9.1)
-#9 2.661       Adding heck v0.3.3 (latest: v0.5.0)
-#9 2.661       Adding heck v0.4.1 (latest: v0.5.0)
-#9 2.661       Adding hermit-abi v0.1.19 (latest: v0.4.0)
-#9 2.661       Adding hermit-abi v0.3.9 (latest: v0.4.0)
-#9 2.661       Adding humantime v1.3.0 (latest: v2.1.0)
-#9 2.661       Adding idna v0.5.0 (latest: v1.0.2)
-#9 2.661       Adding indexmap v1.9.3 (latest: v2.2.6)
-#9 2.662       Adding indoc v1.0.9 (latest: v2.0.5)
-#9 2.662       Adding itertools v0.8.2 (latest: v0.13.0)
-#9 2.662       Adding itertools v0.11.0 (latest: v0.13.0)
-#9 2.663       Adding linux-raw-sys v0.4.14 (latest: v0.6.4)
-#9 2.665       Adding mathru v0.14.0 (latest: v0.15.3)
-#9 2.665       Adding memoffset v0.6.5 (latest: v0.9.1)
-#9 2.665       Adding memoffset v0.7.1 (latest: v0.9.1)
-#9 2.665       Adding multimap v0.9.1 (latest: v0.10.0)
-#9 2.666       Adding nalgebra v0.29.0 (latest: v0.33.0)
-#9 2.666       Adding nalgebra-macros v0.1.0 (latest: v0.2.2)
-#9 2.666       Adding nix v0.26.4 (latest: v0.29.0)
-#9 2.666       Adding ordered-float v1.1.1 (latest: v4.2.2)
-#9 2.666       Adding ordered-float v3.9.2 (latest: v4.2.2)
-#9 2.669       Adding pyo3 v0.17.3 (latest: v0.22.2)
-#9 2.670       Adding pyo3-build-config v0.17.3 (latest: v0.22.2)
-#9 2.670       Adding pyo3-ffi v0.17.3 (latest: v0.22.2)
-#9 2.670       Adding pyo3-macros v0.17.3 (latest: v0.22.2)
-#9 2.670       Adding pyo3-macros-backend v0.17.3 (latest: v0.22.2)
-#9 2.670       Adding quick-error v1.2.3 (latest: v2.0.1)
-#9 2.670       Adding rand v0.4.6 (latest: v0.8.5)
-#9 2.670       Adding rand v0.6.5 (latest: v0.8.5)
-#9 2.670       Adding rand_chacha v0.1.1 (latest: v0.3.1)
-#9 2.670       Adding rand_core v0.3.1 (latest: v0.6.4)
-#9 2.670       Adding rand_core v0.4.2 (latest: v0.6.4)
-#9 2.670       Adding rand_hc v0.1.0 (latest: v0.3.2)
-#9 2.670       Adding rand_isaac v0.1.1 (latest: v0.3.0)
-#9 2.670       Adding rand_jitter v0.1.4 (latest: v0.4.0)
-#9 2.670       Adding rand_os v0.1.3 (latest: v0.2.2)
-#9 2.670       Adding rand_pcg v0.1.2 (latest: v0.3.1)
-#9 2.670       Adding rand_xorshift v0.1.1 (latest: v0.3.0)
-#9 2.671       Adding rdrand v0.4.0 (latest: v0.8.3)
-#9 2.671       Adding regex-automata v0.1.10 (latest: v0.4.7)
-#9 2.671       Adding remove_dir_all v0.5.3 (latest: v0.8.3)
-#9 2.671       Adding roff v0.1.0 (latest: v0.2.2)
-#9 2.672       Adding rust-htslib v0.44.1 (latest: v0.47.0)
-#9 2.672       Adding rustc_version v0.1.7 (latest: v0.4.0)
-#9 2.675       Adding semver v0.1.20 (latest: v1.0.23)
-#9 2.676       Adding simba v0.6.0 (latest: v0.9.0)
-#9 2.676       Adding statrs v0.16.1 (latest: v0.17.1)
-#9 2.676       Adding strum v0.17.1 (latest: v0.26.3)
-#9 2.676       Adding strum v0.25.0 (latest: v0.26.3)
-#9 2.676       Adding strum_macros v0.17.1 (latest: v0.26.4)
-#9 2.676       Adding strum_macros v0.25.3 (latest: v0.26.4)
-#9 2.677       Adding syn v1.0.109 (latest: v2.0.72)
-#9 2.677       Adding term v0.7.0 (latest: v1.0.0)
-#9 2.678       Adding unindent v0.1.11 (latest: v0.2.3)
-#9 2.678       Adding version-compare v0.1.1 (latest: v0.2.0)
-#9 2.678       Adding wasi v0.11.0+wasi-snapshot-preview1 (latest: v0.13.1+wasi-0.2.0)
-#9 2.678       Adding windows-sys v0.52.0 (latest: v0.59.0)
-#9 2.679       Adding zip v0.5.13 (latest: v2.1.5)
-#9 2.679  Downloading crates ...
-#9 2.772   Downloaded ahash v0.7.8
-#9 2.793   Downloaded adler v1.0.2
-#9 2.821   Downloaded anstyle v1.0.8
-#9 2.825   Downloaded anstyle-query v1.1.1
-#9 2.827   Downloaded anstyle-parse v0.2.5
-#9 2.830   Downloaded anstream v0.6.15
-#9 2.833   Downloaded typenum v1.17.0
-#9 2.836   Downloaded thiserror-impl v1.0.63
-#9 2.838   Downloaded ansi_term v0.12.1
-#9 2.847   Downloaded tinyvec_macros v0.1.1
-#9 2.849   Downloaded tinyvec v1.8.0
-#9 2.855   Downloaded is-terminal v0.4.12
-#9 2.857   Downloaded bird_tool_utils v0.4.1
-#9 2.859   Downloaded fxhash v0.2.1
-#9 2.860   Downloaded fs-utils v1.1.4
-#9 2.862   Downloaded atty v0.2.14
-#9 2.863   Downloaded number_prefix v0.4.0
-#9 2.866   Downloaded enum-ordinalize v3.1.15
-#9 2.869   Downloaded is_terminal_polyfill v1.70.1
-#9 2.871   Downloaded equivalent v1.0.1
-#9 2.873   Downloaded roff v0.1.0
-#9 2.876   Downloaded itoa v1.0.11
-#9 2.879   Downloaded ieee754 v0.2.6
-#9 2.881   Downloaded glob v0.3.1
-#9 2.883   Downloaded rawpointer v0.2.1
-#9 2.884   Downloaded newtype_derive v0.1.6
-#9 2.886   Downloaded digest v0.10.7
-#9 2.889   Downloaded generic-array v0.14.7
-#9 2.892   Downloaded scopeguard v1.2.0
-#9 2.895   Downloaded nalgebra-macros v0.1.0
-#9 2.897   Downloaded target-lexicon v0.12.16
-#9 2.901   Downloaded pyo3-macros v0.17.3
-#9 2.903   Downloaded smallvec v1.13.2
-#9 2.907   Downloaded strsim v0.11.1
-#9 2.910   Downloaded rustc_version v0.1.7
-#9 2.911   Downloaded itertools v0.8.2
-#9 2.922   Downloaded strum v0.25.0
-#9 2.924   Downloaded rand_pcg v0.1.2
-#9 2.926   Downloaded utf8parse v0.2.2
-#9 2.928   Downloaded scoped_threadpool v0.1.9
-#9 2.930   Downloaded num v0.4.3
-#9 2.932   Downloaded memoffset v0.7.1
-#9 2.934   Downloaded rustversion v1.0.17
-#9 2.938   Downloaded remove_dir_all v0.5.3
-#9 2.940   Downloaded rustix v0.38.34
-#9 2.986   Downloaded serde v1.0.204
-#9 2.992   Downloaded tempfile v3.10.1
-#9 2.997   Downloaded rand_distr v0.4.3
-#9 3.002   Downloaded rand v0.4.6
-#9 3.007   Downloaded num-bigint v0.4.6
-#9 3.015   Downloaded wide v0.7.26
-#9 3.024   Downloaded rand v0.6.5
-#9 3.031   Downloaded regex-automata v0.1.10
-#9 3.040   Downloaded rayon v1.10.0
-#9 3.057   Downloaded syn v1.0.109
-#9 3.073   Downloaded unicode-width v0.1.13
-#9 3.087   Downloaded regex-automata v0.4.7
-#9 3.106   Downloaded libz-sys v1.1.18
-#9 3.132   Downloaded petgraph v0.6.5
-#9 3.150   Downloaded mathru v0.14.0
-#9 3.178   Downloaded lzma-sys v0.1.20
-#9 3.217   Downloaded regex-syntax v0.8.4
-#9 3.226   Downloaded regex v1.10.5
-#9 3.241   Downloaded linux-raw-sys v0.4.14
-#9 3.293   Downloaded pyo3 v0.17.3
-#9 3.318   Downloaded nix v0.26.4
-#9 3.331   Downloaded ndarray v0.15.6
-#9 3.346   Downloaded nalgebra v0.29.0
-#9 3.369   Downloaded vcpkg v0.2.15
-#9 3.427   Downloaded portable-atomic v1.7.0
-#9 3.434   Downloaded pest v2.7.11
-#9 3.439   Downloaded hts-sys v2.1.4
-#9 3.548   Downloaded zerocopy v0.7.35
-#9 3.568   Downloaded unicode-segmentation v1.11.0
-#9 3.572   Downloaded memchr v2.7.4
-#9 3.578   Downloaded unicode-normalization v0.1.23
-#9 3.582   Downloaded libm v0.2.8
-#9 3.592   Downloaded rand v0.8.5
-#9 3.596   Downloaded url v2.5.2
-#9 3.599   Downloaded libc v0.2.155
-#9 3.633   Downloaded csv v1.3.0
-#9 3.655   Downloaded sha2 v0.10.8
-#9 3.658   Downloaded safe_arch v0.7.2
-#9 3.663   Downloaded rayon-core v1.12.1
-#9 3.667   Downloaded rand_os v0.1.3
-#9 3.669   Downloaded pyo3-ffi v0.17.3
-#9 3.675   Downloaded pyo3-build-config v0.17.3
-#9 3.676   Downloaded proc-macro2 v1.0.86
-#9 3.679   Downloaded pest_meta v2.7.11
-#9 3.681   Downloaded pest_derive v2.7.11
-#9 3.684   Downloaded parking_lot_core v0.9.10
-#9 3.686   Downloaded parking_lot v0.12.3
-#9 3.689   Downloaded once_cell v1.19.0
-#9 3.691   Downloaded num-traits v0.2.19
-#9 3.694   Downloaded num-complex v0.4.6
-#9 3.696   Downloaded needletail v0.5.1
-#9 3.701   Downloaded ndarray-npy v0.8.1
-#9 3.704   Downloaded miniz_oxide v0.7.4
-#9 3.706   Downloaded matrixmultiply v0.3.9
-#9 3.710   Downloaded zip v0.5.13
-#9 3.714   Downloaded zerocopy-derive v0.7.35
-#9 3.719   Downloaded xz2 v0.1.7
-#9 3.721   Downloaded vec_map v0.8.2
-#9 3.722   Downloaded unicode-ident v1.0.12
-#9 3.725   Downloaded bzip2-sys v0.1.11+1.0.8
-#9 3.738   Downloaded semver v0.1.20
-#9 3.739   Downloaded statrs v0.16.1
-#9 3.746   Downloaded syn v2.0.72
-#9 3.758   Downloaded termcolor v1.4.1
-#9 3.759   Downloaded quote v1.0.36
-#9 3.762   Downloaded pyo3-macros-backend v0.17.3
-#9 3.764   Downloaded log v0.4.22
-#9 3.766   Downloaded unicode-bidi v0.3.15
-#9 3.769   Downloaded rand_core v0.4.2
-#9 3.770   Downloaded quick-error v1.2.3
-#9 3.772   Downloaded ppv-lite86 v0.2.19
-#9 3.773   Downloaded pkg-config v0.3.30
-#9 3.775   Downloaded paste v1.0.15
-#9 3.778   Downloaded num-rational v0.4.2
-#9 3.779   Downloaded lock_api v0.4.12
-#9 3.781   Downloaded ucd-trie v0.1.6
-#9 3.782   Downloaded term v0.7.0
-#9 3.786   Downloaded rand_xorshift v0.1.1
-#9 3.787   Downloaded rand_isaac v0.1.1
-#9 3.788   Downloaded py_literal v0.4.0
-#9 3.790   Downloaded ordered-float v1.1.1
-#9 3.791   Downloaded bstr v0.2.17
-#9 3.801   Downloaded roff v0.2.2
-#9 3.802   Downloaded tempdir v0.3.7
-#9 3.803   Downloaded serde_derive v1.0.204
-#9 3.806   Downloaded strum_macros v0.26.4
-#9 3.809   Downloaded pest_generator v2.7.11
-#9 3.810   Downloaded unindent v0.1.11
-#9 3.811   Downloaded idna v0.5.0
-#9 3.818   Downloaded num-iter v0.1.45
-#9 3.819   Downloaded rand_jitter v0.1.4
-#9 3.820   Downloaded rand_hc v0.1.0
-#9 3.821   Downloaded rand_core v0.6.4
-#9 3.823   Downloaded rand_chacha v0.3.1
-#9 3.824   Downloaded pin-utils v0.1.0
-#9 3.825   Downloaded percent-encoding v2.3.1
-#9 3.826   Downloaded partitions v0.2.4
-#9 3.827   Downloaded ordered-float v3.9.2
-#9 3.828   Downloaded version_check v0.9.5
-#9 3.830   Downloaded itertools v0.11.0
-#9 3.837   Downloaded hashbrown v0.14.5
-#9 3.843   Downloaded clap_builder v4.5.11
-#9 3.850   Downloaded bio v1.6.0
-#9 3.860   Downloaded strum v0.17.1
-#9 3.860   Downloaded ryu v1.0.18
-#9 3.864   Downloaded rust-htslib v0.44.1
-#9 3.868   Downloaded indicatif v0.17.8
-#9 3.872   Downloaded hashbrown v0.12.3
-#9 3.877   Downloaded hashbrown v0.11.2
-#9 3.881   Downloaded flate2 v1.0.30
-#9 3.887   Downloaded strum_macros v0.25.3
-#9 3.889   Downloaded strum_macros v0.17.1
-#9 3.891   Downloaded rand_core v0.3.1
-#9 3.892   Downloaded indexmap v2.2.6
-#9 3.897   Downloaded indexmap v1.9.3
-#9 3.900   Downloaded cc v1.1.7
-#9 3.904   Downloaded rand_chacha v0.1.1
-#9 3.905   Downloaded memoffset v0.6.5
-#9 3.906   Downloaded linear-map v1.2.0
-#9 3.908   Downloaded triple_accel v0.4.0
-#9 3.910   Downloaded anyhow v1.0.86
-#9 3.914   Downloaded aho-corasick v1.1.3
-#9 3.920   Downloaded simba v0.6.0
-#9 3.924   Downloaded num-integer v0.1.46
-#9 3.925   Downloaded version-compare v0.1.1
-#9 3.927   Downloaded crossbeam-utils v0.8.20
-#9 3.930   Downloaded bzip2 v0.4.4
-#9 3.931   Downloaded bytemuck v1.16.3
-#9 3.935   Downloaded bv v0.11.1
-#9 3.938   Downloaded bitflags v2.6.0
-#9 3.942   Downloaded crossbeam-epoch v0.9.18
-#9 3.945   Downloaded clap_complete v4.5.11
-#9 3.948   Downloaded clap v4.5.11
-#9 3.958   Downloaded autocfg v1.3.0
-#9 3.960   Downloaded heck v0.4.1
-#9 3.961   Downloaded hashlink v0.7.0
-#9 3.963   Downloaded env_logger v0.10.2
-#9 3.966   Downloaded crossbeam-deque v0.8.5
-#9 3.968   Downloaded multimap v0.9.1
-#9 3.969   Downloaded jobserver v0.1.32
-#9 3.971   Downloaded getrandom v0.2.15
-#9 3.974   Downloaded fixedbitset v0.4.2
-#9 3.975   Downloaded env_logger v0.6.2
-#9 3.978   Downloaded csv-core v0.1.11
-#9 3.980   Downloaded crc32fast v1.4.2
-#9 3.982   Downloaded console v0.15.8
-#9 3.985   Downloaded clap_lex v0.7.2
-#9 3.986   Downloaded buffer-redux v1.0.1
-#9 3.988   Downloaded bit-vec v0.6.3
-#9 3.989   Downloaded thiserror v1.0.63
-#9 3.995   Downloaded lazy_static v1.5.0
-#9 3.996   Downloaded itertools-num v0.1.3
-#9 3.998   Downloaded indoc v1.0.9
-#9 4.000   Downloaded humantime v1.3.0
-#9 4.002   Downloaded heck v0.5.0
-#9 4.003   Downloaded gkl v0.1.1
-#9 4.007   Downloaded feature-probe v0.1.1
-#9 4.008   Downloaded enum-map v2.7.3
-#9 4.009   Downloaded either v1.13.0
-#9 4.011   Downloaded editdistancek v1.0.2
-#9 4.012   Downloaded dirs-next v2.0.0
-#9 4.013   Downloaded custom_derive v0.1.7
-#9 4.014   Downloaded compare v0.1.0
-#9 4.015   Downloaded cfg-if v1.0.0
-#9 4.016   Downloaded byteorder v1.5.0
-#9 4.018   Downloaded bit-set v0.5.3
-#9 4.019   Downloaded bird_tool_utils-man v0.4.0
-#9 4.021   Downloaded crypto-common v0.1.6
-#9 4.022   Downloaded block-buffer v0.10.4
-#9 4.023   Downloaded bit-vec v0.5.1
-#9 4.024   Downloaded bio-types v1.0.3
-#9 4.026   Downloaded cpufeatures v0.2.12
-#9 4.027   Downloaded colorchoice v1.0.2
-#9 4.028   Downloaded bitflags v1.3.2
-#9 4.031   Downloaded autocfg v0.1.8
-#9 4.032   Downloaded form_urlencoded v1.2.1
-#9 4.033   Downloaded fastrand v2.1.0
-#9 4.034   Downloaded derive-new v0.6.0
-#9 4.035   Downloaded derive-new v0.5.9
-#9 4.036   Downloaded cmake v0.1.50
-#9 4.038   Downloaded humantime v2.1.0
-#9 4.039   Downloaded heck v0.3.3
-#9 4.040   Downloaded enum-map-derive v0.17.0
-#9 4.041   Downloaded dirs-sys-next v0.1.2
-#9 4.042   Downloaded bytecount v0.6.8
-#9 4.044   Downloaded approx v0.5.1
-#9 4.046   Downloaded errno v0.3.9
-#9 4.116    Compiling autocfg v1.3.0
-#9 4.116    Compiling proc-macro2 v1.0.86
-#9 4.116    Compiling unicode-ident v1.0.12
-#9 4.116    Compiling libc v0.2.155
-#9 4.118    Compiling cfg-if v1.0.0
-#9 4.120    Compiling libm v0.2.8
-#9 4.123    Compiling memchr v2.7.4
-#9 4.127    Compiling pkg-config v0.3.30
-#9 4.129    Compiling thiserror v1.0.63
-#9 4.135    Compiling byteorder v1.5.0
-#9 4.136    Compiling once_cell v1.19.0
-#9 4.148    Compiling syn v1.0.109
-#9 4.195    Compiling target-lexicon v0.12.16
-#9 4.311    Compiling crossbeam-utils v0.8.20
-#9 4.392    Compiling autocfg v0.1.8
-#9 4.416    Compiling rand_core v0.4.2
-#9 4.464    Compiling num-traits v0.2.19
-#9 4.468    Compiling matrixmultiply v0.3.9
-#9 4.486    Compiling zerocopy v0.7.35
-#9 4.602    Compiling regex-syntax v0.8.4
-#9 4.731    Compiling aho-corasick v1.1.3
-#9 4.747    Compiling rawpointer v0.2.1
-#9 4.769    Compiling lazy_static v1.5.0
-#9 4.800    Compiling rayon-core v1.12.1
-#9 4.809    Compiling either v1.13.0
-#9 4.963    Compiling quote v1.0.36
-#9 5.052    Compiling pyo3-build-config v0.17.3
-#9 5.208    Compiling syn v2.0.72
-#9 5.222    Compiling jobserver v0.1.32
-#9 5.259    Compiling crossbeam-epoch v0.9.18
-#9 5.346    Compiling serde v1.0.204
-#9 5.460    Compiling cc v1.1.7
-#9 5.589    Compiling rustversion v1.0.17
-#9 5.654    Compiling crossbeam-deque v0.8.5
-#9 5.785    Compiling utf8parse v0.2.2
-#9 5.841    Compiling semver v0.1.20
-#9 5.846    Compiling ucd-trie v0.1.6
-#9 5.952    Compiling getrandom v0.2.15
-#9 5.979    Compiling num-integer v0.1.46
-#9 5.995    Compiling num-complex v0.4.6
-#9 6.096    Compiling rand_core v0.6.4
-#9 6.174    Compiling vcpkg v0.2.15
-#9 6.310    Compiling num-bigint v0.4.6
-#9 6.410    Compiling cmake v0.1.50
-#9 6.595    Compiling paste v1.0.15
-#9 6.828    Compiling regex-automata v0.4.7
-#9 6.833    Compiling bytemuck v1.16.3
-#9 7.026    Compiling safe_arch v0.7.2
-#9 7.147    Compiling rustc_version v0.1.7
-#9 7.170    Compiling anstyle-parse v0.2.5
-#9 7.330    Compiling rand_core v0.3.1
-#9 7.405    Compiling libz-sys v1.1.18
-#9 7.557    Compiling is_terminal_polyfill v1.70.1
-#9 7.601    Compiling tinyvec_macros v0.1.1
-#9 7.611    Compiling quick-error v1.2.3
-#9 7.643    Compiling anstyle-query v1.1.1
-#9 7.663    Compiling anstyle v1.0.8
-#9 7.703    Compiling colorchoice v1.0.2
-#9 7.757    Compiling version_check v0.9.5
-#9 7.831    Compiling typenum v1.17.0
-#9 7.953    Compiling adler v1.0.2
-#9 8.090    Compiling miniz_oxide v0.7.4
-#9 8.102    Compiling ahash v0.7.8
-#9 8.323    Compiling rayon v1.10.0
-#9 8.428    Compiling num-rational v0.4.2
-#9 8.440    Compiling anstream v0.6.15
-#9 8.644    Compiling fs-utils v1.1.4
-#9 8.748    Compiling tinyvec v1.8.0
-#9 8.844    Compiling wide v0.7.26
-#9 8.861    Compiling bzip2-sys v0.1.11+1.0.8
-#9 9.093    Compiling thiserror-impl v1.0.63
-#9 9.098    Compiling zerocopy-derive v0.7.35
-#9 9.292    Compiling serde_derive v1.0.204
-#9 9.576    Compiling lzma-sys v0.1.20
-#9 9.802    Compiling regex v1.10.5
-#9 9.845    Compiling newtype_derive v0.1.6
-#9 10.09    Compiling pyo3-ffi v0.17.3
-#9 10.14    Compiling approx v0.5.1
-#9 10.25    Compiling lock_api v0.4.12
-#9 10.35    Compiling ppv-lite86 v0.2.19
-#9 10.39    Compiling crc32fast v1.4.2
-#9 10.45    Compiling parking_lot_core v0.9.10
-#9 10.60    Compiling heck v0.5.0
-#9 10.65    Compiling strsim v0.11.1
-#9 10.67    Compiling feature-probe v0.1.1
-#9 10.79    Compiling rand_chacha v0.3.1
-#9 10.79    Compiling rustix v0.38.34
-#9 10.79    Compiling clap_lex v0.7.2
-#9 10.90    Compiling pest v2.7.11
-#9 10.90    Compiling glob v0.3.1
-#9 11.06    Compiling rand v0.8.5
-#9 11.19    Compiling clap_builder v4.5.11
-#9 11.26    Compiling bv v0.11.1
-#9 11.29    Compiling hts-sys v2.1.4
-#9 11.32    Compiling strum_macros v0.26.4
-#9 11.33    Compiling simba v0.6.0
-#9 11.34    Compiling nalgebra-macros v0.1.0
-#9 11.46    Compiling flate2 v1.0.30
-#9 11.85    Compiling rand_distr v0.4.3
-#9 12.03    Compiling unicode-normalization v0.1.23
-#9 12.23    Compiling derive-new v0.6.0
-#9 12.47    Compiling pest_meta v2.7.11
-#9 13.02    Compiling rand_pcg v0.1.2
-#9 13.03    Compiling memoffset v0.7.1
-#9 13.19    Compiling pest_generator v2.7.11
-#9 13.19    Compiling memoffset v0.6.5
-#9 13.31    Compiling rand_chacha v0.1.1
-#9 13.35    Compiling termcolor v1.4.1
-#9 13.48    Compiling unicode-bidi v0.3.15
-#9 13.89    Compiling equivalent v1.0.1
-#9 14.02    Compiling hashbrown v0.14.5
-#9 14.10    Compiling linux-raw-sys v0.4.14
-#9 14.29    Compiling bitflags v2.6.0
-#9 14.49    Compiling scopeguard v1.2.0
-#9 14.50    Compiling log v0.4.22
-#9 14.52    Compiling portable-atomic v1.7.0
-#9 14.54    Compiling smallvec v1.13.2
-#9 14.62    Compiling anyhow v1.0.86
-#9 14.69    Compiling percent-encoding v2.3.1
-#9 14.77    Compiling indexmap v2.2.6
-#9 14.86    Compiling form_urlencoded v1.2.1
-#9 14.97    Compiling pest_derive v2.7.11
-#9 15.22    Compiling bio-types v1.0.3
-#9 15.29    Compiling idna v0.5.0
-#9 15.66    Compiling clap v4.5.11
-#9 15.83    Compiling ndarray v0.15.6
-#9 15.89    Compiling enum-map-derive v0.17.0
-#9 16.11    Compiling pyo3-macros-backend v0.17.3
-#9 16.44    Compiling gkl v0.1.1
-#9 16.53    Compiling pyo3 v0.17.3
-#9 16.78    Compiling nalgebra v0.29.0
-#9 16.79    Compiling dirs-sys-next v0.1.2
-#9 16.83    Compiling is-terminal v0.4.12
-#9 16.87    Compiling csv-core v0.1.11
-#9 17.02    Compiling indexmap v1.9.3
-#9 17.03    Compiling rand v0.6.5
-#9 17.14    Compiling roff v0.1.0
-#9 17.16    Compiling heck v0.4.1
-#9 17.22    Compiling fixedbitset v0.4.2
-#9 17.23    Compiling custom_derive v0.1.7
-#9 17.27    Compiling fastrand v2.1.0
-#9 17.37    Compiling itoa v1.0.11
-#9 17.41    Compiling unicode-width v0.1.13
-#9 17.49    Compiling ryu v1.0.18
-#9 17.50    Compiling humantime v2.1.0
-#9 17.54    Compiling bytecount v0.6.8
-#9 17.57    Compiling bit-vec v0.6.3
-#9 17.58    Compiling unicode-segmentation v1.11.0
-#9 17.66    Compiling env_logger v0.10.2
-#9 17.75    Compiling bit-set v0.5.3
-#9 17.76    Compiling csv v1.3.0
-#9 17.83    Compiling tempfile v3.10.1
-#9 17.88    Compiling console v0.15.8
-#9 17.96    Compiling heck v0.3.3
-#9 18.12    Compiling humantime v1.3.0
-#9 18.35    Compiling petgraph v0.6.5
-#9 18.45    Compiling strum_macros v0.25.3
-#9 18.66    Compiling bzip2 v0.4.4
-#9 18.72    Compiling bird_tool_utils-man v0.4.0
-#9 18.72    Compiling dirs-next v2.0.0
-#9 18.81    Compiling vec_map v0.8.2
-#9 18.85    Compiling multimap v0.9.1
-#9 19.00    Compiling enum-map v2.7.3
-#9 19.02    Compiling py_literal v0.4.0
-#9 19.40    Compiling url v2.5.2
-#9 19.57    Compiling pyo3-macros v0.17.3
-#9 19.84    Compiling hashbrown v0.11.2
-#9 20.36    Compiling parking_lot v0.12.3
-#9 20.53    Compiling zip v0.5.13
-#9 20.90    Compiling derive-new v0.5.9
-#9 20.97    Compiling rand_hc v0.1.0
-#9 21.08    Compiling rand_xorshift v0.1.1
-#9 21.09    Compiling rand_isaac v0.1.1
-#9 21.11    Compiling num-iter v0.1.45
-#9 21.17    Compiling atty v0.2.14
-#9 21.18    Compiling rand v0.4.6
-#9 21.18    Compiling rand_os v0.1.3
-#9 21.19    Compiling itertools-num v0.1.3
-#9 21.22    Compiling ordered-float v3.9.2
-#9 21.25    Compiling itertools v0.11.0
-#9 21.33    Compiling buffer-redux v1.0.1
-#9 21.38    Compiling rand_jitter v0.1.4
-#9 21.45    Compiling fxhash v0.2.1
-#9 21.53    Compiling unindent v0.1.11
-#9 21.54    Compiling editdistancek v1.0.2
-#9 21.61    Compiling hashbrown v0.12.3
-#9 21.69    Compiling bit-vec v0.5.1
-#9 21.76    Compiling regex-automata v0.1.10
-#9 21.79    Compiling remove_dir_all v0.5.3
-#9 21.82    Compiling version-compare v0.1.1
-#9 21.82    Compiling ieee754 v0.2.6
-#9 21.89    Compiling strum v0.25.0
-#9 21.92    Compiling pin-utils v0.1.0
-#9 21.95    Compiling number_prefix v0.4.0
-#9 21.95    Compiling linear-map v1.2.0
-#9 22.01    Compiling indoc v1.0.9
-#9 22.04    Compiling triple_accel v0.4.0
-#9 22.14    Compiling bitflags v1.3.2
-#9 22.17    Compiling indicatif v0.17.8
-#9 22.18    Compiling nix v0.26.4
-#9 22.19    Compiling bstr v0.2.17
-#9 22.19    Compiling bird_tool_utils v0.4.1
-#9 22.77    Compiling partitions v0.2.4
-#9 22.93    Compiling tempdir v0.3.7
-#9 23.09    Compiling env_logger v0.6.2
-#9 23.15    Compiling num v0.4.3
-#9 23.19    Compiling ndarray-npy v0.8.1
-#9 23.31    Compiling enum-ordinalize v3.1.15
-#9 24.00    Compiling hashlink v0.7.0
-#9 24.03    Compiling term v0.7.0
-#9 24.06    Compiling strum_macros v0.17.1
-#9 24.06    Compiling clap_complete v4.5.11
-#9 24.09    Compiling mathru v0.14.0
-#9 24.33    Compiling ordered-float v1.1.1
-#9 24.48    Compiling itertools v0.8.2
-#9 24.59    Compiling xz2 v0.1.7
-#9 24.93    Compiling needletail v0.5.1
-#9 25.38    Compiling ansi_term v0.12.1
-#9 25.40    Compiling scoped_threadpool v0.1.9
-#9 25.44    Compiling strum v0.17.1
-#9 25.50    Compiling compare v0.1.0
-#9 25.68    Compiling roff v0.2.2
-#9 28.71    Compiling statrs v0.16.1
-#9 29.53    Compiling bio v1.6.0
-#9 31.37    Compiling rust-htslib v0.44.1
-#9 32.55    Compiling lorikeet-genome v0.8.2
-#9 94.68 error: linking with `cc` failed: exit status: 1
-#9 94.68   |
-#9 94.68   = note: LC_ALL="C" PATH="/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" VSLANG="1033" "cc" "-m64" "/tmp/rustclSLVJJ/symbols.o" "/tmp/cargo-installNNyfCv/release/deps/lorikeet-fa4565bcc4b9ca55.lorikeet.3af0f2ba56ce5a72-cgu.01.rcgu.o" "-Wl,--as-needed" "-L" "/tmp/cargo-installNNyfCv/release/deps" "-L" "/tmp/cargo-installNNyfCv/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installNNyfCv/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installNNyfCv/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installNNyfCv/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installNNyfCv/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installNNyfCv/release/build/bzip2-sys-844ba8284fa59635/out/lib" "-L" "/tmp/cargo-installNNyfCv/release/build/lzma-sys-d8cf32d74cde2f07/out" "-L" "/usr/lib/x86_64-linux-gnu" "-L" "/tmp/cargo-installNNyfCv/release/build/hts-sys-53644d1c37718ab6/out" "-L" "/tmp/cargo-installNNyfCv/release/build/libz-sys-1f4d6cea57070e62/out/lib" "-L" "/tmp/cargo-installNNyfCv/release/build/libz-sys-1f4d6cea57070e62/out/lib64" "-L" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib" "-Wl,-Bstatic" "/tmp/rustclSLVJJ/liblzma_sys-ddf39b56372b9e66.rlib" "/tmp/rustclSLVJJ/libbzip2_sys-2d1852acf01bd90c.rlib" "/tmp/rustclSLVJJ/libgkl-41bfc3f4a726a6d1.rlib" "/tmp/rustclSLVJJ/libhts_sys-4dcde1389943d966.rlib" "/tmp/rustclSLVJJ/liblibz_sys-cc49ab3e0c61de25.rlib" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib/libcompiler_builtins-d4ebcca572002f93.rlib" "-Wl,-Bdynamic" "-lpython3.10" "-lstdc++" "-lgcc_s" "-lutil" "-lrt" "-lpthread" "-lm" "-ldl" "-lc" "-Wl,--eh-frame-hdr" "-Wl,-z,noexecstack" "-L" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib" "-o" "/tmp/cargo-installNNyfCv/release/deps/lorikeet-fa4565bcc4b9ca55" "-Wl,--gc-sections" "-pie" "-Wl,-z,relro,-z,now" "-Wl,-O1" "-Wl,--strip-all" "-nodefaultlibs"
-#9 94.68   = note: /usr/bin/ld: cannot find -lpython3.10: No such file or directory
-#9 94.68           collect2: error: ld returned 1 exit status
-#9 94.68           
-#9 94.68 
-#9 94.70 error: could not compile `lorikeet-genome` (bin "lorikeet") due to 1 previous error
-#9 94.75 error: failed to compile `lorikeet-genome v0.8.2`, intermediate artifacts can be found at `/tmp/cargo-installNNyfCv`.
-#9 94.75 To reuse those artifacts with a future compilation, set the environment variable `CARGO_TARGET_DIR` to that path.
-#9 ERROR: process "/bin/sh -c cargo install lorikeet-genome --version=0.8.2" did not complete successfully: exit code: 101
+#9 [5/6] RUN apt-get install -y python3 cmake
+#9 CACHED
+
+#10 [6/6] RUN cargo install lorikeet-genome --version=0.8.2
+#10 0.290     Updating crates.io index
+#10 1.370  Downloading crates ...
+#10 2.254   Downloaded lorikeet-genome v0.8.2
+#10 2.349   Installing lorikeet-genome v0.8.2
+#10 2.394     Updating crates.io index
+#10 5.376      Locking 260 packages to latest compatible versions
+#10 5.376       Adding ahash v0.7.8 (latest: v0.8.11)
+#10 5.376       Adding autocfg v0.1.8 (latest: v1.3.0)
+#10 5.377       Adding bio v1.6.0 (latest: v2.0.1)
+#10 5.377       Adding bird_tool_utils v0.4.1 (latest: v0.5.0)
+#10 5.377       Adding bit-set v0.5.3 (latest: v0.8.0)
+#10 5.377       Adding bit-vec v0.5.1 (latest: v0.8.0)
+#10 5.377       Adding bit-vec v0.6.3 (latest: v0.8.0)
+#10 5.377       Adding bitflags v1.3.2 (latest: v2.6.0)
+#10 5.377       Adding bstr v0.2.17 (latest: v1.10.0)
+#10 5.379       Adding cloudabi v0.0.3 (latest: v0.1.0)
+#10 5.380       Adding derive-new v0.5.9 (latest: v0.6.0)
+#10 5.380       Adding encode_unicode v0.3.6 (latest: v1.0.0)
+#10 5.380       Adding enum-ordinalize v3.1.15 (latest: v4.3.0)
+#10 5.380       Adding env_logger v0.6.2 (latest: v0.11.5)
+#10 5.380       Adding env_logger v0.10.2 (latest: v0.11.5)
+#10 5.380       Adding fixedbitset v0.4.2 (latest: v0.5.7)
+#10 5.380       Adding generic-array v0.14.7 (latest: v1.1.0)
+#10 5.381       Adding hashbrown v0.11.2 (latest: v0.14.5)
+#10 5.381       Adding hashbrown v0.12.3 (latest: v0.14.5)
+#10 5.381       Adding hashlink v0.7.0 (latest: v0.9.1)
+#10 5.381       Adding heck v0.3.3 (latest: v0.5.0)
+#10 5.381       Adding heck v0.4.1 (latest: v0.5.0)
+#10 5.381       Adding hermit-abi v0.1.19 (latest: v0.4.0)
+#10 5.381       Adding hermit-abi v0.3.9 (latest: v0.4.0)
+#10 5.381       Adding humantime v1.3.0 (latest: v2.1.0)
+#10 5.381       Adding idna v0.5.0 (latest: v1.0.2)
+#10 5.381       Adding indexmap v1.9.3 (latest: v2.3.0)
+#10 5.381       Adding indoc v1.0.9 (latest: v2.0.5)
+#10 5.382       Adding itertools v0.8.2 (latest: v0.13.0)
+#10 5.382       Adding itertools v0.11.0 (latest: v0.13.0)
+#10 5.382       Adding linux-raw-sys v0.4.14 (latest: v0.6.4)
+#10 5.385       Adding mathru v0.14.0 (latest: v0.15.3)
+#10 5.385       Adding memoffset v0.6.5 (latest: v0.9.1)
+#10 5.385       Adding memoffset v0.7.1 (latest: v0.9.1)
+#10 5.385       Adding multimap v0.9.1 (latest: v0.10.0)
+#10 5.385       Adding nalgebra v0.29.0 (latest: v0.33.0)
+#10 5.385       Adding nalgebra-macros v0.1.0 (latest: v0.2.2)
+#10 5.385       Adding ndarray v0.15.6 (latest: v0.16.0)
+#10 5.386       Adding nix v0.26.4 (latest: v0.29.0)
+#10 5.386       Adding ordered-float v1.1.1 (latest: v4.2.2)
+#10 5.386       Adding ordered-float v3.9.2 (latest: v4.2.2)
+#10 5.389       Adding pyo3 v0.17.3 (latest: v0.22.2)
+#10 5.389       Adding pyo3-build-config v0.17.3 (latest: v0.22.2)
+#10 5.389       Adding pyo3-ffi v0.17.3 (latest: v0.22.2)
+#10 5.389       Adding pyo3-macros v0.17.3 (latest: v0.22.2)
+#10 5.389       Adding pyo3-macros-backend v0.17.3 (latest: v0.22.2)
+#10 5.389       Adding quick-error v1.2.3 (latest: v2.0.1)
+#10 5.390       Adding rand v0.4.6 (latest: v0.8.5)
+#10 5.390       Adding rand v0.6.5 (latest: v0.8.5)
+#10 5.390       Adding rand_chacha v0.1.1 (latest: v0.3.1)
+#10 5.390       Adding rand_core v0.3.1 (latest: v0.6.4)
+#10 5.390       Adding rand_core v0.4.2 (latest: v0.6.4)
+#10 5.390       Adding rand_hc v0.1.0 (latest: v0.3.2)
+#10 5.390       Adding rand_isaac v0.1.1 (latest: v0.3.0)
+#10 5.390       Adding rand_jitter v0.1.4 (latest: v0.4.0)
+#10 5.390       Adding rand_os v0.1.3 (latest: v0.2.2)
+#10 5.390       Adding rand_pcg v0.1.2 (latest: v0.3.1)
+#10 5.390       Adding rand_xorshift v0.1.1 (latest: v0.3.0)
+#10 5.390       Adding rdrand v0.4.0 (latest: v0.8.3)
+#10 5.391       Adding regex-automata v0.1.10 (latest: v0.4.7)
+#10 5.391       Adding remove_dir_all v0.5.3 (latest: v0.8.3)
+#10 5.391       Adding roff v0.1.0 (latest: v0.2.2)
+#10 5.391       Adding rust-htslib v0.44.1 (latest: v0.47.0)
+#10 5.391       Adding rustc_version v0.1.7 (latest: v0.4.0)
+#10 5.395       Adding semver v0.1.20 (latest: v1.0.23)
+#10 5.395       Adding simba v0.6.0 (latest: v0.9.0)
+#10 5.396       Adding statrs v0.16.1 (latest: v0.17.1)
+#10 5.396       Adding strum v0.17.1 (latest: v0.26.3)
+#10 5.396       Adding strum v0.25.0 (latest: v0.26.3)
+#10 5.396       Adding strum_macros v0.17.1 (latest: v0.26.4)
+#10 5.396       Adding strum_macros v0.25.3 (latest: v0.26.4)
+#10 5.396       Adding syn v1.0.109 (latest: v2.0.72)
+#10 5.397       Adding term v0.7.0 (latest: v1.0.0)
+#10 5.397       Adding unindent v0.1.11 (latest: v0.2.3)
+#10 5.398       Adding version-compare v0.1.1 (latest: v0.2.0)
+#10 5.398       Adding wasi v0.11.0+wasi-snapshot-preview1 (latest: v0.13.1+wasi-0.2.0)
+#10 5.398       Adding windows-sys v0.52.0 (latest: v0.59.0)
+#10 5.398       Adding zip v0.5.13 (latest: v2.1.6)
+#10 5.399  Downloading crates ...
+#10 5.478   Downloaded adler v1.0.2
+#10 5.510   Downloaded anstyle-query v1.1.1
+#10 5.514   Downloaded anstream v0.6.15
+#10 5.522   Downloaded ansi_term v0.12.1
+#10 5.526   Downloaded anstyle-parse v0.2.5
+#10 5.530   Downloaded derive-new v0.6.0
+#10 5.532   Downloaded autocfg v0.1.8
+#10 5.543   Downloaded anstyle v1.0.8
+#10 5.546   Downloaded bitflags v1.3.2
+#10 5.551   Downloaded atty v0.2.14
+#10 5.553   Downloaded fs-utils v1.1.4
+#10 5.554   Downloaded enum-ordinalize v3.1.15
+#10 5.555   Downloaded bird_tool_utils v0.4.1
+#10 5.559   Downloaded fxhash v0.2.1
+#10 5.560   Downloaded libm v0.2.8
+#10 5.571   Downloaded is-terminal v0.4.12
+#10 5.573   Downloaded tinyvec_macros v0.1.1
+#10 5.574   Downloaded lazy_static v1.5.0
+#10 5.577   Downloaded nalgebra-macros v0.1.0
+#10 5.578   Downloaded indoc v1.0.9
+#10 5.582   Downloaded strum v0.25.0
+#10 5.583   Downloaded strum v0.17.1
+#10 5.584   Downloaded getrandom v0.2.15
+#10 5.588   Downloaded clap_complete v4.5.12
+#10 5.592   Downloaded newtype_derive v0.1.6
+#10 5.594   Downloaded termcolor v1.4.1
+#10 5.596   Downloaded rawpointer v0.2.1
+#10 5.597   Downloaded rustversion v1.0.17
+#10 5.600   Downloaded strsim v0.11.1
+#10 5.602   Downloaded smallvec v1.13.2
+#10 5.605   Downloaded itertools v0.11.0
+#10 5.615   Downloaded hashbrown v0.14.5
+#10 5.622   Downloaded safe_arch v0.7.2
+#10 5.629   Downloaded rustix v0.38.34
+#10 5.659   Downloaded roff v0.1.0
+#10 5.661   Downloaded term v0.7.0
+#10 5.665   Downloaded num-integer v0.1.46
+#10 5.667   Downloaded multimap v0.9.1
+#10 5.668   Downloaded vec_map v0.8.2
+#10 5.669   Downloaded tempfile v3.11.0
+#10 5.674   Downloaded syn v1.0.109
+#10 5.686   Downloaded syn v2.0.72
+#10 5.699   Downloaded tinyvec v1.8.0
+#10 5.702   Downloaded rand_xorshift v0.1.1
+#10 5.703   Downloaded zerocopy-derive v0.7.35
+#10 5.709   Downloaded unicode-bidi v0.3.15
+#10 5.712   Downloaded quote v1.0.36
+#10 5.715   Downloaded num-traits v0.2.19
+#10 5.718   Downloaded once_cell v1.19.0
+#10 5.722   Downloaded pyo3-build-config v0.17.3
+#10 5.725   Downloaded pest_meta v2.7.11
+#10 5.727   Downloaded proc-macro2 v1.0.86
+#10 5.731   Downloaded parking_lot v0.12.3
+#10 5.733   Downloaded serde_derive v1.0.204
+#10 5.737   Downloaded rayon-core v1.12.1
+#10 5.741   Downloaded pyo3-macros-backend v0.17.3
+#10 5.744   Downloaded needletail v0.5.1
+#10 5.749   Downloaded rand_distr v0.4.3
+#10 5.753   Downloaded matrixmultiply v0.3.9
+#10 5.757   Downloaded rand v0.4.6
+#10 5.762   Downloaded pyo3-ffi v0.17.3
+#10 5.768   Downloaded num-bigint v0.4.6
+#10 5.774   Downloaded memchr v2.7.4
+#10 5.781   Downloaded rand v0.6.5
+#10 5.786   Downloaded regex-automata v0.1.10
+#10 5.800   Downloaded zerocopy v0.7.35
+#10 5.825   Downloaded hts-sys v2.1.4
+#10 5.936   Downloaded rayon v1.10.0
+#10 5.947   Downloaded regex v1.10.6
+#10 5.963   Downloaded nix v0.26.4
+#10 5.976   Downloaded nalgebra v0.29.0
+#10 6.001   Downloaded ndarray v0.15.6
+#10 6.016   Downloaded pyo3 v0.17.3
+#10 6.042   Downloaded unicode-width v0.1.13
+#10 6.051   Downloaded regex-automata v0.4.7
+#10 6.071   Downloaded petgraph v0.6.5
+#10 6.089   Downloaded lzma-sys v0.1.20
+#10 6.131   Downloaded libz-sys v1.1.18
+#10 6.156   Downloaded mathru v0.14.0
+#10 6.185   Downloaded vcpkg v0.2.15
+#10 6.244   Downloaded portable-atomic v1.7.0
+#10 6.251   Downloaded rand v0.8.5
+#10 6.255   Downloaded linux-raw-sys v0.4.14
+#10 6.309   Downloaded pest v2.7.11
+#10 6.314   Downloaded unicode-normalization v0.1.23
+#10 6.318   Downloaded wide v0.7.26
+#10 6.323   Downloaded url v2.5.2
+#10 6.326   Downloaded unicode-segmentation v1.11.0
+#10 6.330   Downloaded miniz_oxide v0.7.4
+#10 6.332   Downloaded unicode-ident v1.0.12
+#10 6.336   Downloaded log v0.4.22
+#10 6.338   Downloaded lock_api v0.4.12
+#10 6.339   Downloaded zip v0.5.13
+#10 6.343   Downloaded ucd-trie v0.1.6
+#10 6.345   Downloaded typenum v1.17.0
+#10 6.347   Downloaded rand_os v0.1.3
+#10 6.349   Downloaded rand_core v0.4.2
+#10 6.351   Downloaded rand_chacha v0.3.1
+#10 6.352   Downloaded pkg-config v0.3.30
+#10 6.354   Downloaded pest_generator v2.7.11
+#10 6.355   Downloaded pest_derive v2.7.11
+#10 6.357   Downloaded partitions v0.2.4
+#10 6.359   Downloaded parking_lot_core v0.9.10
+#10 6.361   Downloaded ordered-float v1.1.1
+#10 6.362   Downloaded num-rational v0.4.2
+#10 6.363   Downloaded num-complex v0.4.6
+#10 6.365   Downloaded ndarray-npy v0.8.1
+#10 6.368   Downloaded libc v0.2.155
+#10 6.403   Downloaded csv v1.3.0
+#10 6.425   Downloaded strum_macros v0.26.4
+#10 6.428   Downloaded serde v1.0.204
+#10 6.431   Downloaded rust-htslib v0.44.1
+#10 6.436   Downloaded bzip2-sys v0.1.11+1.0.8
+#10 6.450   Downloaded tempdir v0.3.7
+#10 6.451   Downloaded strum_macros v0.25.3
+#10 6.454   Downloaded strum_macros v0.17.1
+#10 6.456   Downloaded simba v0.6.0
+#10 6.459   Downloaded semver v0.1.20
+#10 6.460   Downloaded scopeguard v1.2.0
+#10 6.461   Downloaded ryu v1.0.18
+#10 6.465   Downloaded roff v0.2.2
+#10 6.466   Downloaded remove_dir_all v0.5.3
+#10 6.467   Downloaded rand_pcg v0.1.2
+#10 6.468   Downloaded rand_jitter v0.1.4
+#10 6.470   Downloaded rand_isaac v0.1.1
+#10 6.471   Downloaded rand_hc v0.1.0
+#10 6.472   Downloaded rand_core v0.6.4
+#10 6.473   Downloaded rand_core v0.3.1
+#10 6.475   Downloaded rand_chacha v0.1.1
+#10 6.476   Downloaded quick-error v1.2.3
+#10 6.477   Downloaded py_literal v0.4.0
+#10 6.478   Downloaded ppv-lite86 v0.2.20
+#10 6.480   Downloaded pin-utils v0.1.0
+#10 6.481   Downloaded percent-encoding v2.3.1
+#10 6.482   Downloaded paste v1.0.15
+#10 6.485   Downloaded ordered-float v3.9.2
+#10 6.486   Downloaded number_prefix v0.4.0
+#10 6.487   Downloaded num-iter v0.1.45
+#10 6.488   Downloaded num v0.4.3
+#10 6.489   Downloaded memoffset v0.7.1
+#10 6.491   Downloaded linear-map v1.2.0
+#10 6.492   Downloaded xz2 v0.1.7
+#10 6.494   Downloaded version_check v0.9.5
+#10 6.495   Downloaded version-compare v0.1.1
+#10 6.497   Downloaded unindent v0.1.11
+#10 6.497   Downloaded triple_accel v0.4.0
+#10 6.500   Downloaded memoffset v0.6.5
+#10 6.501   Downloaded bstr v0.2.17
+#10 6.511   Downloaded idna v0.5.0
+#10 6.518   Downloaded statrs v0.16.1
+#10 6.525   Downloaded regex-syntax v0.8.4
+#10 6.534   Downloaded thiserror-impl v1.0.63
+#10 6.535   Downloaded thiserror v1.0.63
+#10 6.541   Downloaded clap_builder v4.5.13
+#10 6.548   Downloaded bio v1.6.0
+#10 6.558   Downloaded aho-corasick v1.1.3
+#10 6.565   Downloaded hashbrown v0.12.3
+#10 6.569   Downloaded flate2 v1.0.31
+#10 6.575   Downloaded utf8parse v0.2.2
+#10 6.577   Downloaded itertools v0.8.2
+#10 6.583   Downloaded indexmap v2.3.0
+#10 6.587   Downloaded hashbrown v0.11.2
+#10 6.591   Downloaded indicatif v0.17.8
+#10 6.595   Downloaded cc v1.1.7
+#10 6.599   Downloaded sha2 v0.10.8
+#10 6.601   Downloaded pyo3-macros v0.17.3
+#10 6.602   Downloaded crossbeam-utils v0.8.20
+#10 6.605   Downloaded jobserver v0.1.32
+#10 6.607   Downloaded indexmap v1.9.3
+#10 6.611   Downloaded bv v0.11.1
+#10 6.614   Downloaded bitflags v2.6.0
+#10 6.619   Downloaded anyhow v1.0.86
+#10 6.623   Downloaded clap v4.5.13
+#10 6.634   Downloaded bytemuck v1.16.3
+#10 6.637   Downloaded buffer-redux v1.0.1
+#10 6.639   Downloaded crossbeam-epoch v0.9.18
+#10 6.642   Downloaded scoped_threadpool v0.1.9
+#10 6.643   Downloaded rustc_version v0.1.7
+#10 6.643   Downloaded target-lexicon v0.12.16
+#10 6.646   Downloaded hashlink v0.7.0
+#10 6.648   Downloaded gkl v0.1.1
+#10 6.651   Downloaded errno v0.3.9
+#10 6.652   Downloaded env_logger v0.10.2
+#10 6.656   Downloaded env_logger v0.6.2
+#10 6.659   Downloaded csv-core v0.1.11
+#10 6.660   Downloaded crossbeam-deque v0.8.5
+#10 6.662   Downloaded crc32fast v1.4.2
+#10 6.664   Downloaded console v0.15.8
+#10 6.667   Downloaded bzip2 v0.4.4
+#10 6.669   Downloaded itertools-num v0.1.3
+#10 6.670   Downloaded ieee754 v0.2.6
+#10 6.672   Downloaded humantime v2.1.0
+#10 6.673   Downloaded heck v0.4.1
+#10 6.675   Downloaded glob v0.3.1
+#10 6.676   Downloaded form_urlencoded v1.2.1
+#10 6.677   Downloaded fastrand v2.1.0
+#10 6.678   Downloaded enum-map-derive v0.17.0
+#10 6.680   Downloaded dirs-sys-next v0.1.2
+#10 6.681   Downloaded bytecount v0.6.8
+#10 6.683   Downloaded heck v0.3.3
+#10 6.684   Downloaded generic-array v0.14.7
+#10 6.685   Downloaded fixedbitset v0.4.2
+#10 6.687   Downloaded either v1.13.0
+#10 6.688   Downloaded editdistancek v1.0.2
+#10 6.689   Downloaded itoa v1.0.11
+#10 6.690   Downloaded feature-probe v0.1.1
+#10 6.691   Downloaded custom_derive v0.1.7
+#10 6.693   Downloaded colorchoice v1.0.2
+#10 6.694   Downloaded bit-set v0.5.3
+#10 6.695   Downloaded is_terminal_polyfill v1.70.1
+#10 6.696   Downloaded humantime v1.3.0
+#10 6.697   Downloaded heck v0.5.0
+#10 6.699   Downloaded equivalent v1.0.1
+#10 6.699   Downloaded enum-map v2.7.3
+#10 6.701   Downloaded dirs-next v2.0.0
+#10 6.702   Downloaded digest v0.10.7
+#10 6.704   Downloaded derive-new v0.5.9
+#10 6.705   Downloaded crypto-common v0.1.6
+#10 6.706   Downloaded cpufeatures v0.2.12
+#10 6.707   Downloaded compare v0.1.0
+#10 6.708   Downloaded cmake v0.1.50
+#10 6.709   Downloaded clap_lex v0.7.2
+#10 6.710   Downloaded cfg-if v1.0.0
+#10 6.712   Downloaded byteorder v1.5.0
+#10 6.713   Downloaded block-buffer v0.10.4
+#10 6.714   Downloaded bit-vec v0.6.3
+#10 6.716   Downloaded bit-vec v0.5.1
+#10 6.717   Downloaded bird_tool_utils-man v0.4.0
+#10 6.719   Downloaded bio-types v1.0.3
+#10 6.721   Downloaded autocfg v1.3.0
+#10 6.723   Downloaded approx v0.5.1
+#10 6.725   Downloaded ahash v0.7.8
+#10 6.792    Compiling autocfg v1.3.0
+#10 6.792    Compiling proc-macro2 v1.0.86
+#10 6.792    Compiling unicode-ident v1.0.12
+#10 6.792    Compiling libc v0.2.155
+#10 6.792    Compiling cfg-if v1.0.0
+#10 6.795    Compiling libm v0.2.8
+#10 6.797    Compiling memchr v2.7.4
+#10 6.800    Compiling pkg-config v0.3.30
+#10 6.804    Compiling thiserror v1.0.63
+#10 6.806    Compiling byteorder v1.5.0
+#10 6.806    Compiling once_cell v1.19.0
+#10 6.882    Compiling syn v1.0.109
+#10 6.919    Compiling target-lexicon v0.12.16
+#10 6.986    Compiling crossbeam-utils v0.8.20
+#10 7.057    Compiling autocfg v0.1.8
+#10 7.094    Compiling rand_core v0.4.2
+#10 7.168    Compiling regex-syntax v0.8.4
+#10 7.198    Compiling num-traits v0.2.19
+#10 7.242    Compiling matrixmultiply v0.3.9
+#10 7.304    Compiling either v1.13.0
+#10 7.451    Compiling aho-corasick v1.1.3
+#10 7.491    Compiling lazy_static v1.5.0
+#10 7.498    Compiling serde v1.0.204
+#10 7.532    Compiling rawpointer v0.2.1
+#10 7.540    Compiling rustversion v1.0.17
+#10 7.579    Compiling rayon-core v1.12.1
+#10 7.740    Compiling quote v1.0.36
+#10 7.751    Compiling pyo3-build-config v0.17.3
+#10 7.876    Compiling jobserver v0.1.32
+#10 7.918    Compiling syn v2.0.72
+#10 8.021    Compiling crossbeam-epoch v0.9.18
+#10 8.068    Compiling cc v1.1.7
+#10 8.251    Compiling paste v1.0.15
+#10 8.473    Compiling crossbeam-deque v0.8.5
+#10 8.490    Compiling utf8parse v0.2.2
+#10 8.508    Compiling ucd-trie v0.1.6
+#10 8.548    Compiling semver v0.1.20
+#10 8.619    Compiling num-integer v0.1.46
+#10 8.662    Compiling getrandom v0.2.15
+#10 8.716    Compiling num-complex v0.4.6
+#10 8.812    Compiling rand_core v0.6.4
+#10 8.861    Compiling bytemuck v1.16.3
+#10 9.064    Compiling num-bigint v0.4.6
+#10 9.072    Compiling cmake v0.1.50
+#10 9.212    Compiling vcpkg v0.2.15
+#10 9.342    Compiling safe_arch v0.7.2
+#10 9.546    Compiling regex-automata v0.4.7
+#10 9.846    Compiling rustc_version v0.1.7
+#10 9.920    Compiling anstyle-parse v0.2.5
+#10 10.06    Compiling rand_core v0.3.1
+#10 10.09    Compiling libz-sys v1.1.18
+#10 10.30    Compiling anstyle v1.0.8
+#10 10.31    Compiling is_terminal_polyfill v1.70.1
+#10 10.36    Compiling typenum v1.17.0
+#10 10.53    Compiling tinyvec_macros v0.1.1
+#10 10.57    Compiling version_check v0.9.5
+#10 10.72    Compiling adler v1.0.2
+#10 10.76    Compiling colorchoice v1.0.2
+#10 10.82    Compiling quick-error v1.2.3
+#10 10.86    Compiling anstyle-query v1.1.1
+#10 10.87    Compiling ahash v0.7.8
+#10 10.88    Compiling fs-utils v1.1.4
+#10 10.91    Compiling anstream v0.6.15
+#10 10.96    Compiling miniz_oxide v0.7.4
+#10 11.03    Compiling num-rational v0.4.2
+#10 11.09    Compiling tinyvec v1.8.0
+#10 11.19    Compiling rayon v1.10.0
+#10 11.60    Compiling lzma-sys v0.1.20
+#10 11.87    Compiling thiserror-impl v1.0.63
+#10 11.88    Compiling zerocopy-derive v0.7.35
+#10 12.00    Compiling serde_derive v1.0.204
+#10 12.13    Compiling bzip2-sys v0.1.11+1.0.8
+#10 12.16    Compiling newtype_derive v0.1.6
+#10 12.21    Compiling pyo3-ffi v0.17.3
+#10 12.40    Compiling regex v1.10.6
+#10 12.49    Compiling wide v0.7.26
+#10 12.54    Compiling approx v0.5.1
+#10 12.59    Compiling lock_api v0.4.12
+#10 12.65    Compiling crc32fast v1.4.2
+#10 12.81    Compiling heck v0.5.0
+#10 12.93    Compiling rustix v0.38.34
+#10 13.01    Compiling strsim v0.11.1
+#10 13.02    Compiling clap_lex v0.7.2
+#10 13.16    Compiling zerocopy v0.7.35
+#10 13.28    Compiling glob v0.3.1
+#10 13.29    Compiling parking_lot_core v0.9.10
+#10 13.44    Compiling feature-probe v0.1.1
+#10 13.56    Compiling bv v0.11.1
+#10 13.60    Compiling clap_builder v4.5.13
+#10 13.70    Compiling hts-sys v2.1.4
+#10 13.70    Compiling strum_macros v0.26.4
+#10 13.81    Compiling flate2 v1.0.31
+#10 13.84    Compiling pest v2.7.11
+#10 13.95    Compiling ppv-lite86 v0.2.20
+#10 14.15    Compiling nalgebra-macros v0.1.0
+#10 14.37    Compiling rand_chacha v0.3.1
+#10 14.39    Compiling unicode-normalization v0.1.23
+#10 14.62    Compiling rand v0.8.5
+#10 14.99    Compiling simba v0.6.0
+#10 15.10    Compiling derive-new v0.6.0
+#10 15.44    Compiling pest_meta v2.7.11
+#10 15.60    Compiling rand_distr v0.4.3
+#10 15.90    Compiling memoffset v0.7.1
+#10 16.03    Compiling rand_pcg v0.1.2
+#10 16.10    Compiling memoffset v0.6.5
+#10 16.22    Compiling pest_generator v2.7.11
+#10 16.28    Compiling rand_chacha v0.1.1
+#10 16.46    Compiling anyhow v1.0.86
+#10 16.50    Compiling log v0.4.22
+#10 16.71    Compiling scopeguard v1.2.0
+#10 16.72    Compiling termcolor v1.4.1
+#10 16.76    Compiling portable-atomic v1.7.0
+#10 16.92    Compiling linux-raw-sys v0.4.14
+#10 17.12    Compiling hashbrown v0.14.5
+#10 17.16    Compiling bitflags v2.6.0
+#10 17.23    Compiling smallvec v1.13.2
+#10 17.36    Compiling equivalent v1.0.1
+#10 17.37    Compiling unicode-bidi v0.3.15
+#10 17.39    Compiling percent-encoding v2.3.1
+#10 17.55    Compiling form_urlencoded v1.2.1
+#10 17.59    Compiling pest_derive v2.7.11
+#10 17.88    Compiling indexmap v2.3.0
+#10 17.94    Compiling idna v0.5.0
+#10 18.30    Compiling bio-types v1.0.3
+#10 18.52    Compiling clap v4.5.13
+#10 18.82    Compiling ndarray v0.15.6
+#10 18.93    Compiling enum-map-derive v0.17.0
+#10 18.99    Compiling pyo3-macros-backend v0.17.3
+#10 19.06    Compiling gkl v0.1.1
+#10 19.43    Compiling pyo3 v0.17.3
+#10 19.65    Compiling is-terminal v0.4.12
+#10 19.69    Compiling dirs-sys-next v0.1.2
+#10 19.69    Compiling csv-core v0.1.11
+#10 19.96    Compiling indexmap v1.9.3
+#10 20.02    Compiling rand v0.6.5
+#10 20.03    Compiling unicode-width v0.1.13
+#10 20.12    Compiling itoa v1.0.11
+#10 20.13    Compiling fixedbitset v0.4.2
+#10 20.14    Compiling bytecount v0.6.8
+#10 20.16    Compiling fastrand v2.1.0
+#10 20.21    Compiling custom_derive v0.1.7
+#10 20.23    Compiling heck v0.4.1
+#10 20.24    Compiling bit-vec v0.6.3
+#10 20.35    Compiling unicode-segmentation v1.11.0
+#10 20.39    Compiling nalgebra v0.29.0
+#10 20.40    Compiling humantime v2.1.0
+#10 20.43    Compiling ryu v1.0.18
+#10 20.46    Compiling roff v0.1.0
+#10 20.61    Compiling env_logger v0.10.2
+#10 20.67    Compiling heck v0.3.3
+#10 20.68    Compiling csv v1.3.0
+#10 20.71    Compiling bird_tool_utils-man v0.4.0
+#10 20.74    Compiling bit-set v0.5.3
+#10 20.83    Compiling bzip2 v0.4.4
+#10 20.84    Compiling strum_macros v0.25.3
+#10 20.90    Compiling tempfile v3.11.0
+#10 21.06    Compiling petgraph v0.6.5
+#10 21.25    Compiling humantime v1.3.0
+#10 21.26    Compiling console v0.15.8
+#10 21.55    Compiling multimap v0.9.1
+#10 21.60    Compiling vec_map v0.8.2
+#10 21.69    Compiling dirs-next v2.0.0
+#10 21.70    Compiling py_literal v0.4.0
+#10 21.78    Compiling enum-map v2.7.3
+#10 22.25    Compiling hashbrown v0.11.2
+#10 22.50    Compiling pyo3-macros v0.17.3
+#10 22.66    Compiling url v2.5.2
+#10 23.02    Compiling parking_lot v0.12.3
+#10 23.42    Compiling zip v0.5.13
+#10 23.60    Compiling derive-new v0.5.9
+#10 23.64    Compiling rand_isaac v0.1.1
+#10 23.76    Compiling rand_hc v0.1.0
+#10 23.89    Compiling rand_xorshift v0.1.1
+#10 23.93    Compiling num-iter v0.1.45
+#10 23.97    Compiling atty v0.2.14
+#10 23.99    Compiling rand v0.4.6
+#10 24.00    Compiling rand_os v0.1.3
+#10 24.02    Compiling ordered-float v3.9.2
+#10 24.19    Compiling itertools-num v0.1.3
+#10 24.24    Compiling itertools v0.11.0
+#10 24.25    Compiling buffer-redux v1.0.1
+#10 24.28    Compiling rand_jitter v0.1.4
+#10 24.35    Compiling fxhash v0.2.1
+#10 24.38    Compiling linear-map v1.2.0
+#10 24.42    Compiling regex-automata v0.1.10
+#10 24.43    Compiling strum v0.25.0
+#10 24.48    Compiling ieee754 v0.2.6
+#10 24.52    Compiling unindent v0.1.11
+#10 24.54    Compiling number_prefix v0.4.0
+#10 24.56    Compiling hashbrown v0.12.3
+#10 24.64    Compiling version-compare v0.1.1
+#10 24.67    Compiling bit-vec v0.5.1
+#10 24.73    Compiling indoc v1.0.9
+#10 24.74    Compiling remove_dir_all v0.5.3
+#10 24.78    Compiling editdistancek v1.0.2
+#10 24.87    Compiling pin-utils v0.1.0
+#10 24.90    Compiling triple_accel v0.4.0
+#10 24.91    Compiling bitflags v1.3.2
+#10 24.92    Compiling partitions v0.2.4
+#10 24.95    Compiling nix v0.26.4
+#10 24.96    Compiling tempdir v0.3.7
+#10 25.01    Compiling bird_tool_utils v0.4.1
+#10 25.13    Compiling bstr v0.2.17
+#10 25.19    Compiling indicatif v0.17.8
+#10 25.93    Compiling env_logger v0.6.2
+#10 26.11    Compiling num v0.4.3
+#10 26.13    Compiling ndarray-npy v0.8.1
+#10 26.15    Compiling enum-ordinalize v3.1.15
+#10 26.84    Compiling hashlink v0.7.0
+#10 26.97    Compiling term v0.7.0
+#10 27.00    Compiling strum_macros v0.17.1
+#10 27.02    Compiling clap_complete v4.5.12
+#10 27.09    Compiling mathru v0.14.0
+#10 27.19    Compiling ordered-float v1.1.1
+#10 27.38    Compiling itertools v0.8.2
+#10 28.01    Compiling compare v0.1.0
+#10 28.14    Compiling scoped_threadpool v0.1.9
+#10 28.26    Compiling strum v0.17.1
+#10 28.32    Compiling ansi_term v0.12.1
+#10 28.34    Compiling roff v0.2.2
+#10 29.23    Compiling xz2 v0.1.7
+#10 29.40    Compiling needletail v0.5.1
+#10 32.46    Compiling statrs v0.16.1
+#10 33.10    Compiling bio v1.6.0
+#10 34.62    Compiling rust-htslib v0.44.1
+#10 36.12    Compiling lorikeet-genome v0.8.2
+#10 99.00 error: linking with `cc` failed: exit status: 1
+#10 99.00   |
+#10 99.00   = note: LC_ALL="C" PATH="/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" VSLANG="1033" "cc" "-m64" "/tmp/rustcXjDDKU/symbols.o" "/tmp/cargo-installGe0RxP/release/deps/lorikeet-f035361da399b855.lorikeet.83697a94d35de0d1-cgu.01.rcgu.o" "-Wl,--as-needed" "-L" "/tmp/cargo-installGe0RxP/release/deps" "-L" "/tmp/cargo-installGe0RxP/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installGe0RxP/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installGe0RxP/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installGe0RxP/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installGe0RxP/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installGe0RxP/release/build/bzip2-sys-844ba8284fa59635/out/lib" "-L" "/tmp/cargo-installGe0RxP/release/build/lzma-sys-d8cf32d74cde2f07/out" "-L" "/usr/lib/x86_64-linux-gnu" "-L" "/tmp/cargo-installGe0RxP/release/build/hts-sys-53644d1c37718ab6/out" "-L" "/tmp/cargo-installGe0RxP/release/build/libz-sys-1f4d6cea57070e62/out/lib" "-L" "/tmp/cargo-installGe0RxP/release/build/libz-sys-1f4d6cea57070e62/out/lib64" "-L" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib" "-Wl,-Bstatic" "/tmp/rustcXjDDKU/liblzma_sys-ddf39b56372b9e66.rlib" "/tmp/rustcXjDDKU/libbzip2_sys-2d1852acf01bd90c.rlib" "/tmp/rustcXjDDKU/libgkl-41bfc3f4a726a6d1.rlib" "/tmp/rustcXjDDKU/libhts_sys-4dcde1389943d966.rlib" "/tmp/rustcXjDDKU/liblibz_sys-cc49ab3e0c61de25.rlib" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib/libcompiler_builtins-d4ebcca572002f93.rlib" "-Wl,-Bdynamic" "-lpython3.10" "-lstdc++" "-lgcc_s" "-lutil" "-lrt" "-lpthread" "-lm" "-ldl" "-lc" "-Wl,--eh-frame-hdr" "-Wl,-z,noexecstack" "-L" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib" "-o" "/tmp/cargo-installGe0RxP/release/deps/lorikeet-f035361da399b855" "-Wl,--gc-sections" "-pie" "-Wl,-z,relro,-z,now" "-Wl,-O1" "-Wl,--strip-all" "-nodefaultlibs"
+#10 99.00   = note: /usr/bin/ld: cannot find -lpython3.10: No such file or directory
+#10 99.00           collect2: error: ld returned 1 exit status
+#10 99.00           
+#10 99.00 
+#10 99.02 error: could not compile `lorikeet-genome` (bin "lorikeet") due to 1 previous error
+#10 99.06 error: failed to compile `lorikeet-genome v0.8.2`, intermediate artifacts can be found at `/tmp/cargo-installGe0RxP`.
+#10 99.06 To reuse those artifacts with a future compilation, set the environment variable `CARGO_TARGET_DIR` to that path.
+#10 ERROR: process "/bin/sh -c cargo install lorikeet-genome --version=0.8.2" did not complete successfully: exit code: 101
 ------
- > [ 6/10] RUN cargo install lorikeet-genome --version=0.8.2:
-94.68 error: linking with `cc` failed: exit status: 1
-94.68   |
-94.68   = note: LC_ALL="C" PATH="/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" VSLANG="1033" "cc" "-m64" "/tmp/rustclSLVJJ/symbols.o" "/tmp/cargo-installNNyfCv/release/deps/lorikeet-fa4565bcc4b9ca55.lorikeet.3af0f2ba56ce5a72-cgu.01.rcgu.o" "-Wl,--as-needed" "-L" "/tmp/cargo-installNNyfCv/release/deps" "-L" "/tmp/cargo-installNNyfCv/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installNNyfCv/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installNNyfCv/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installNNyfCv/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installNNyfCv/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installNNyfCv/release/build/bzip2-sys-844ba8284fa59635/out/lib" "-L" "/tmp/cargo-installNNyfCv/release/build/lzma-sys-d8cf32d74cde2f07/out" "-L" "/usr/lib/x86_64-linux-gnu" "-L" "/tmp/cargo-installNNyfCv/release/build/hts-sys-53644d1c37718ab6/out" "-L" "/tmp/cargo-installNNyfCv/release/build/libz-sys-1f4d6cea57070e62/out/lib" "-L" "/tmp/cargo-installNNyfCv/release/build/libz-sys-1f4d6cea57070e62/out/lib64" "-L" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib" "-Wl,-Bstatic" "/tmp/rustclSLVJJ/liblzma_sys-ddf39b56372b9e66.rlib" "/tmp/rustclSLVJJ/libbzip2_sys-2d1852acf01bd90c.rlib" "/tmp/rustclSLVJJ/libgkl-41bfc3f4a726a6d1.rlib" "/tmp/rustclSLVJJ/libhts_sys-4dcde1389943d966.rlib" "/tmp/rustclSLVJJ/liblibz_sys-cc49ab3e0c61de25.rlib" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib/libcompiler_builtins-d4ebcca572002f93.rlib" "-Wl,-Bdynamic" "-lpython3.10" "-lstdc++" "-lgcc_s" "-lutil" "-lrt" "-lpthread" "-lm" "-ldl" "-lc" "-Wl,--eh-frame-hdr" "-Wl,-z,noexecstack" "-L" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib" "-o" "/tmp/cargo-installNNyfCv/release/deps/lorikeet-fa4565bcc4b9ca55" "-Wl,--gc-sections" "-pie" "-Wl,-z,relro,-z,now" "-Wl,-O1" "-Wl,--strip-all" "-nodefaultlibs"
-94.68   = note: /usr/bin/ld: cannot find -lpython3.10: No such file or directory
-94.68           collect2: error: ld returned 1 exit status
-94.68           
-94.68 
-94.70 error: could not compile `lorikeet-genome` (bin "lorikeet") due to 1 previous error
-94.75 error: failed to compile `lorikeet-genome v0.8.2`, intermediate artifacts can be found at `/tmp/cargo-installNNyfCv`.
-94.75 To reuse those artifacts with a future compilation, set the environment variable `CARGO_TARGET_DIR` to that path.
+ > [6/6] RUN cargo install lorikeet-genome --version=0.8.2:
+99.00 error: linking with `cc` failed: exit status: 1
+99.00   |
+99.00   = note: LC_ALL="C" PATH="/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" VSLANG="1033" "cc" "-m64" "/tmp/rustcXjDDKU/symbols.o" "/tmp/cargo-installGe0RxP/release/deps/lorikeet-f035361da399b855.lorikeet.83697a94d35de0d1-cgu.01.rcgu.o" "-Wl,--as-needed" "-L" "/tmp/cargo-installGe0RxP/release/deps" "-L" "/tmp/cargo-installGe0RxP/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installGe0RxP/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installGe0RxP/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installGe0RxP/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installGe0RxP/release/build/gkl-d3ebb634a6ce7f8a/out" "-L" "/tmp/cargo-installGe0RxP/release/build/bzip2-sys-844ba8284fa59635/out/lib" "-L" "/tmp/cargo-installGe0RxP/release/build/lzma-sys-d8cf32d74cde2f07/out" "-L" "/usr/lib/x86_64-linux-gnu" "-L" "/tmp/cargo-installGe0RxP/release/build/hts-sys-53644d1c37718ab6/out" "-L" "/tmp/cargo-installGe0RxP/release/build/libz-sys-1f4d6cea57070e62/out/lib" "-L" "/tmp/cargo-installGe0RxP/release/build/libz-sys-1f4d6cea57070e62/out/lib64" "-L" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib" "-Wl,-Bstatic" "/tmp/rustcXjDDKU/liblzma_sys-ddf39b56372b9e66.rlib" "/tmp/rustcXjDDKU/libbzip2_sys-2d1852acf01bd90c.rlib" "/tmp/rustcXjDDKU/libgkl-41bfc3f4a726a6d1.rlib" "/tmp/rustcXjDDKU/libhts_sys-4dcde1389943d966.rlib" "/tmp/rustcXjDDKU/liblibz_sys-cc49ab3e0c61de25.rlib" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib/libcompiler_builtins-d4ebcca572002f93.rlib" "-Wl,-Bdynamic" "-lpython3.10" "-lstdc++" "-lgcc_s" "-lutil" "-lrt" "-lpthread" "-lm" "-ldl" "-lc" "-Wl,--eh-frame-hdr" "-Wl,-z,noexecstack" "-L" "/root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib" "-o" "/tmp/cargo-installGe0RxP/release/deps/lorikeet-f035361da399b855" "-Wl,--gc-sections" "-pie" "-Wl,-z,relro,-z,now" "-Wl,-O1" "-Wl,--strip-all" "-nodefaultlibs"
+99.00   = note: /usr/bin/ld: cannot find -lpython3.10: No such file or directory
+99.00           collect2: error: ld returned 1 exit status
+99.00           
+99.00 
+99.02 error: could not compile `lorikeet-genome` (bin "lorikeet") due to 1 previous error
+99.06 error: failed to compile `lorikeet-genome v0.8.2`, intermediate artifacts can be found at `/tmp/cargo-installGe0RxP`.
+99.06 To reuse those artifacts with a future compilation, set the environment variable `CARGO_TARGET_DIR` to that path.
 ------
-Dockerfile.crates:15
+Dockerfile.crates:16
 --------------------
-  13 |     
-  14 |     RUN apt-get install -y python3-minimal cmake
-  15 | >>> RUN cargo install lorikeet-genome --version=0.8.2
-  16 |     
-  17 |     # Install non-rust dependencies via conda
+  14 |     RUN apt-get install -y python3 cmake
+  15 |     
+  16 | >>> RUN cargo install lorikeet-genome --version=0.8.2
+  17 |     
+  18 |     # # Install non-rust dependencies via conda
 --------------------
 ERROR: failed to solve: process "/bin/sh -c cargo install lorikeet-genome --version=0.8.2" did not complete successfully: exit code: 101

@@ -13,7 +13,8 @@ echo "Testing Lorikeet version $LORIKEET_VERSION"
 # Test crates install
 echo "Testing crates install .."
 sed "s/LORIKEET_VERSION/$LORIKEET_VERSION/g" Dockerfile.crates.in > Dockerfile.crates
-docker build --no-cache --progress=plain -f Dockerfile.crates . &> crates.build.log
+docker build --progress=plain -f Dockerfile.crates . &> crates.build.log
+# docker build --no-cache --progress=plain -f Dockerfile.crates . &> crates.build.log
 
 # # Test docker install. Easier here than within a Dockerfile
 # echo "Testing docker install .."
